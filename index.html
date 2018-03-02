@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="apple-touch-icon" sizes="57x57" href="//nabijaczleweli.xyz/assets/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="//nabijaczleweli.xyz/assets/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="//nabijaczleweli.xyz/assets/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="//nabijaczleweli.xyz/assets/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="//nabijaczleweli.xyz/assets/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="//nabijaczleweli.xyz/assets/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="//nabijaczleweli.xyz/assets/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="//nabijaczleweli.xyz/assets/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="//nabijaczleweli.xyz/assets/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="//nabijaczleweli.xyz/assets/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="//nabijaczleweli.xyz/assets/favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="//nabijaczleweli.xyz/assets/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="//nabijaczleweli.xyz/assets/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="//nabijaczleweli.xyz/assets/favicons/manifest.json">
+    <link rel="mask-icon" href="//nabijaczleweli.xyz/assets/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="//nabijaczleweli.xyz/assets/favicons/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="nabijaczleweli">
+    <meta name="application-name" content="nabijaczleweli">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="//nabijaczleweli.xyz/assets/favicons/mstile-144x144.png">
+    <meta name="msapplication-config" content="//nabijaczleweli.xyz/assets/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="//nabijaczleweli.xyz/kaschism/assets/column.css" rel="stylesheet" />
+
+    <link href="//nabijaczleweli.xyz/content/writing/the_taste_of_mi/Merriweather-font.css" rel="stylesheet" />
+    <link href="//nabijaczleweli.xyz/content/writing/Roboto-font.css" rel="stylesheet" />
+    <link href="//releases.nabijaczleweli.xyz/css/DejaVu-Sans-Mono.css" rel="stylesheet" />
+
+    <link href="/assets/code.css" rel="stylesheet" />
+    <link href="/assets/hashes.css" rel="stylesheet" />
+    <link href="/assets/footer.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/platform/1.3.5/platform.min.js"></script>
+    <script type="text/javascript" src="//releases.nabijaczleweli.xyz/js/lib/node-enum.min.js"></script>
+    <script type="text/javascript" src="//releases.nabijaczleweli.xyz/js/util.min.js"></script>
+    <script type="text/javascript" src="//releases.nabijaczleweli.xyz/js/platform-detect.min.js"></script>
+
+    <title>Adding a folder to your path – a guide by Natalie Weizenbaum</title>
+  </head>
+
+  <body class="roboto">
+
+
+<article itemprop="text">
+  <p>The <code>PATH</code> is an important concept when working on the command line. It's a list of directories that tell your operating system where to look for programs, so that you can just write <code>script</code> instead of <code>/home/me/bin/script</code> or <code>C:\Users\Me\bin\script</code>.
+  But different operating systems have different ways to add a new directory to it:</p>
+
+  <h2 class="merriweather" id="windows"><a class="hash-link" href="#windows">#</a>Windows</h2>
+
+  <ol>
+    <li>The first step depends which version of Windows you're using:</li>
+  </ol>
+  <ul>
+    <li>If you're using Windows 8 or 10, press the Windows key, then search for and select "System (Control Panel)".</li>
+    <li>If you're using Windows 7, right click the "Computer" icon on the desktop and click "Properties".</li>
+  </ul>
+  <ol start="2">
+    <li>Click "Advanced system settings".</li>
+    <li>Click "Environment Variables".</li>
+    <li>Under "System Variables", find the <code>PATH</code> variable, select it, and click "Edit". If there is no <code>PATH</code> variable, click "New".</li>
+    <li>Add your directory to the beginning of the variable value followed by <code>;</code> (a semicolon). For example, if the value was <code>C:\Windows\System32</code>, change it to <code>C:\Users\Me\bin;C:\Windows\System32</code>.</li>
+    <li>Click "OK".</li>
+    <li>Restart your terminal.</li>
+  </ol>
+
+  <h2 class="merriweather" id="mac-os-x"><a class="hash-link" href="#mac-os-x">#</a>Mac OS X</h2>
+
+  <ol>
+    <li>Open the <code>.bash_profile</code> file in your home directory (for example, <code>/Users/your-user-name/.bash_profile</code>) in a text editor.</li>
+    <li>Add <code>export PATH="your-dir:$PATH"</code> to the last line of the file, where <em>your-dir</em> is the directory you want to add.</li>
+    <li>Save the <code>.bash_profile</code> file.</li>
+    <li>Restart your terminal.</li>
+  </ol>
+
+  <h2 class="merriweather" id="linux"><a class="hash-link" href="#linux">#</a>Linux</h2>
+
+  <ol>
+    <li>Open the <code>.bashrc</code> file in your home directory (for example, <code>/home/your-user-name/.bashrc</code>) in a text editor.</li>
+    <li>Add <code>export PATH="your-dir:$PATH"</code> to the last line of the file, where <em>your-dir</em> is the directory you want to add.</li>
+    <li>Save the <code>.bashrc</code> file.</li>
+    <li>Restart your terminal.</li>
+  </ol>
+</article>
+
+
+<footer>
+  <center>
+    Adding a folder to your path – a guide by <a href="https://twitter.com/nex3/status/974446986588860417">Natalie Weizenbaum</a>.
+  </center>
+</footer>
+
+  </body>
+</html>
